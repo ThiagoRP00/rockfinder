@@ -1,6 +1,6 @@
 import { ImageBackground, StyleSheet } from 'react-native';
 
-export default function HomeScreen() {
+export default function FavoritesScreen() {
   return (
     <ImageBackground
       source={require('../assets/images/background.png')}
