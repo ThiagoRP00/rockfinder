@@ -4,17 +4,17 @@ import { Tabs } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 
 SplashScreen.preventAutoHideAsync();
 
-function Logo() {
-  return (
-    <View flexDirection="row">
-      <Text style={styles.logo}>Rock<Text style={{ color: '#E50914' }}>Finder</Text></Text>
-    </View>
-  );
-}
+// function Logo() {
+//   return (
+//     <View flexDirection="row">
+//       <Text style={styles.logo}>Rock<Text style={{ color: '#E50914' }}>Finder</Text></Text>
+//     </View>
+//   );
+// }
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
@@ -35,8 +35,8 @@ export default function RootLayout() {
     <React.Fragment>
       <StatusBar style="auto" />
       <Tabs screenOptions={{
-        headerTitleAlign: "center",
-        headerTransparent: true,
+        // headerTitleAlign: "center",
+        // headerTransparent: true,
         tabBarActiveTintColor: "#E50914",
         tabBarInactiveTintColor: "#B3B3B3",
         tabBarStyle: { backgroundColor: "#1A1A1A", height: 90 },
@@ -44,7 +44,8 @@ export default function RootLayout() {
       }}>
         <Tabs.Screen name="index"
           options={{
-            headerTitle: () => <Logo />,
+            // headerTitle: () => <Logo />,
+            headerShown: false,
             tabBarLabel: "Início",
             tabBarIcon: ({ color, size }) => (
               <Ionicons
@@ -68,8 +69,9 @@ export default function RootLayout() {
           }} />
         <Tabs.Screen name="favorites"
           options={{
-            headerTitle: "Meus Favoritos",
-            headerTitleStyle: { fontFamily: 'MetalMania_400Regular', fontSize: 32, color: '#fff' },
+            // headerTitle: "Meus Favoritos",
+            headerShown: false,
+            // headerTitleStyle: { fontFamily: 'MetalMania_400Regular', fontSize: 32, color: '#fff' },
             tabBarLabel: "Favoritos",
             tabBarIcon: ({ color, size }) => (
               <Ionicons
@@ -81,8 +83,9 @@ export default function RootLayout() {
           }} />
         <Tabs.Screen name="profile"
           options={{
-            headerTitle: "Meu Perfil",
-            headerTitleStyle: { fontFamily: 'MetalMania_400Regular', fontSize: 32, color: '#fff' },
+            // headerTitle: "Meu Perfil",
+            headerShown: false,
+            // headerTitleStyle: { fontFamily: 'MetalMania_400Regular', fontSize: 32, color: '#fff' },
             tabBarLabel: "Perfil",
             tabBarIcon: ({ color, size }) => (
               <Ionicons
@@ -99,11 +102,11 @@ export default function RootLayout() {
 }
 
 const styles = StyleSheet.create({
-  logo: {
-    fontSize: 52,
-    color: '#fff',
-    fontFamily: 'MetalMania_400Regular',
-  },
+  // logo: {
+  //   fontSize: 52,
+  //   color: '#fff',
+  //   fontFamily: 'MetalMania_400Regular',
+  // },
 
 });
 
