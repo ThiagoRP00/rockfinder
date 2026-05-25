@@ -1,6 +1,5 @@
 import { MetalMania_400Regular, useFonts } from "@expo-google-fonts/metal-mania";
-import { Ionicons } from "@expo/vector-icons";
-import { Tabs } from "expo-router";
+import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect } from "react";
@@ -8,6 +7,7 @@ import React, { useEffect } from "react";
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+
   const [loaded, error] = useFonts({
     MetalMania_400Regular,
   });
@@ -24,39 +24,28 @@ export default function RootLayout() {
 
   return (
     <React.Fragment>
-      <StatusBar style="auto" />
-      <Tabs screenOptions={{
-        tabBarActiveTintColor: "#E50914",
-        tabBarInactiveTintColor: "#B3B3B3",
-        tabBarStyle: { backgroundColor: "#1A1A1A", height: 80 },
-
-      }}>
-        <Tabs.Screen name="index"
+      <StatusBar style="light" />
+      <Stack>
+        <Stack.Screen
+          name="(tabs)"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="event/[id]"
           options={{
-            headerShown: false,
-            tabBarLabel: "Pesquisar",
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons
-                name="search-sharp"
-                size={size}
-                color={color}
-              />
-            ),
-          }} />
-        <Tabs.Screen name="addEvent"
-          options={{
-            headerShown: false,
-            tabBarLabel: "Adicionar Evento",
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons
-                name="add-sharp"
-                size={size}
-                color={color}
-              />
-            ),
-          }} />
-      </Tabs>
+            title: "Detalhes do Evento",
+            headerStyle: {
+              backgroundColor: "#1A1A1A",
+            },
+            headerTitleStyle: {
+              fontFamily: 'MetalMania_400Regular',
+              fontSize: 25,
+            },
+            headerTintColor: "#FFF",
+            headerTitleAlign: "center",
+          }}
+        />
+      </Stack>
     </React.Fragment>
   );
 }
-
